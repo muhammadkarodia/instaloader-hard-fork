@@ -1,6 +1,7 @@
-#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin/env bash
 url="$1"
 if [[ "$url" =~ /(p|reel|reels)/([A-Za-z0-9_-]+) ]]; then
     ig_id="${BASH_REMATCH[2]}"
+    cd /sdcard
     python ~/instaloader-hard-fork/instaloader.py -- -"$ig_id"
 fi
