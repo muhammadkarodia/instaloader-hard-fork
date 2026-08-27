@@ -1,0 +1,8 @@
+url="$1"
+
+ig_id=$(printf '%s\n' "$url" | sed -n -e 's|.*/p/\([A-Za-z0-9_-]\{1,\}\).*|\1|p' -e 's|.*/reel/\([A-Za-z0-9_-]\{1,\}\).*|\1|p' -e 's|.*/reels/\([A-Za-z0-9_-]\{1,\}\).*|\1|p')
+
+if [ -n "$ig_id" ]; then
+    cd ~/Documents
+    python instaloader.py -- -"$ig_id"
+fi
